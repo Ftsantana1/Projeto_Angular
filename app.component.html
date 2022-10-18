@@ -1,0 +1,42 @@
+<h1>Formulario</h1>
+
+<form>
+  <div class="container">
+   
+  
+<div class="row">
+  <label>Nome: </label>
+  <input type="text" value="{{pessoa.nome}}" >
+</div>
+<div class="row">
+  <label>Idade: </label>
+  <input type="text" value="{{pessoa.idade}}"  >
+</div>
+<div class="row"> 
+  <div class="col-md-2">
+    <label>Masculino: </label>
+    <input type="radio" value="{{pessoa.sexo}}" name ="sexo" (change)="tratarSexo('MASCULINO')" >
+  </div>
+  <div class="col-md-2">
+    <label>Feminino: </label>
+    <input type="radio" value="{{pessoa.sexo}}" name ="sexo" (change)="tratarSexo('FEMININO')" >
+  </div>
+  <div class="col-md-2">
+    <label>Outros: </label>
+    <input type="radio" value="{{pessoa.sexo}}" name ="sexo" (change)="tratarSexo('OUTROS')" >
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <button class="btn btn-danger">Cancelar</button>
+      <button class="btn btn-primary" (click)="salvar()" [disabled]="habilitarBotaoSalvar()">Salvar</button>
+    </div>   
+  </div>
+  </div>
+  <div class="row" *ngIf="sucesso">
+    <p>Nome: {{pessoa.nome}}</p>
+    <p>Idade:{{pessoa.idade}}</p>
+    <p>Sexo: {{pessoa.sexo}}</p>
+
+  </div>
+</div>
+</form>
